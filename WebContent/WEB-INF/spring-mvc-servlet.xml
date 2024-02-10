@@ -25,4 +25,8 @@
 	<!-- 애노테이션 기반 MVC 지원 활성화 -->
 	<mvc:annotation-driven />
 	
+	<!-- css,js 서블릿이 인식을 못해서 작성한 것, resources폴더 만들기 -->
+	<!-- localhost:8088/spring/resources 자원으로 설정(서블릿에서 빼버린다) -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
 </beans>
