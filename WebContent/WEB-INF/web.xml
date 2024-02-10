@@ -5,6 +5,17 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>13_SpringJdbc</display-name>
     
+    <!-- Spring configuration start -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:/applicationContext*.xml</param-value>
+	</context-param>
+	<!-- Spring configuration end -->
+    
 	<!-- Spring servlet start -->
 	<servlet>
 		<servlet-name>spring-mvc</servlet-name>

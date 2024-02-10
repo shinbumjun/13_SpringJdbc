@@ -17,6 +17,16 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
+<script type="text/javascript">
+	//컨트롤러에서 보낸 메세지가 있을 경우
+	window.onload = function(e){ 
+		var resultMsg = '${resultMsg}';
+		var resultCode = '${resultCode}';
+		if(resultMsg.length > 0){
+			alert(resultMsg);
+		}
+	}
+</script>
 
 <title>Login & Registration Form</title>
 </head>

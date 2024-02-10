@@ -11,6 +11,18 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  
+  	<script type="text/javascript">
+		//컨트롤러에서 보낸 메세지가 있을 경우
+		window.onload = function(e){ 
+			var resultMsg = '${resultMsg}';
+			var resultCode = '${resultCode}';
+			if(resultMsg.length > 0){
+				alert(resultMsg);
+			}
+		}
+	</script>
+  
   <title>13_SpringJdbc</title>
   <link rel="stylesheet" href="<c:url value='/resources/css/menu.css'/>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
