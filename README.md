@@ -1,3 +1,5 @@
+https://www.notion.so/3-6b58e0f107e6462c8b4ca99ca63db379?pvs=4
+
 1. Eclipse에서 프로젝트 생성 및 기본 설정
    Dynamic Web Project : 13_SpringJdbc → web.xml(DispatcherServlet) →
    pom.xml(Maven 프로젝트) → spring-servlet.xml(MVC관련) → logback.xml →
