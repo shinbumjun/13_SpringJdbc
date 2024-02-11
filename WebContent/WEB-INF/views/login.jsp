@@ -19,12 +19,35 @@
 
 <script type="text/javascript">
 	//컨트롤러에서 보낸 메세지가 있을 경우
-	window.onload = function(e){ 
-		var resultMsg = '${resultMsg}';
-		var resultCode = '${resultCode}';
-		if(resultMsg.length > 0){
-			alert(resultMsg);
-		}
+	 window.onload = function(e){ 
+		
+			var resultMsg = '${resultMsg}';
+		 	var resultCode = '${resultCode}';
+			if(resultMsg.length > 0){
+		 		alert(resultMsg);
+		 		// 메시지를 한 번 보여준 후 resultMsg 값을 비웁니다.
+		         resultMsg = '';
+			}
+		
+		// 새로고침 할 때 마다 뜨길래 코드를 아래와 같이 작성했는데 이러면 메시지가 아예 안뜸 
+	    /* var resultMsg = '${resultMsg}';
+	    var resultCode = '${resultCode}';
+	    if(resultMsg.length > 0){
+	        // 로컬 스토리지에 메시지를 저장합니다.
+	        localStorage.setItem('resultMsg', resultMsg);
+	        alert(resultMsg);
+	        // 메시지를 한 번 보여준 후 resultMsg 값을 비웁니다.
+	        '${resultMsg}' = '';
+	    } else {
+	        // 이전에 저장된 메시지가 있는지 확인하고 있다면 표시합니다.
+	        var storedMsg = localStorage.getItem('resultMsg');
+	        if (storedMsg) {
+	            alert(storedMsg);
+	            // 이전에 저장된 메시지를 지웁니다.
+	            localStorage.removeItem('resultMsg');
+	        }
+	    } */
+		
 	}
 </script>
 
@@ -37,8 +60,16 @@
 			<div class="form login">
 				<span class="title">Login</span>
 
-				<form action="<c:url value='/login.do'/>" method="post"
+				<form action="<c:url value='/login'/>" method="post"
 					onsubmit="return formCheck(this);">
+					
+					<!-- 화면에 표시하지 않고 공간을 차지하지 않도록 하는 방법 -->
+					<!-- ListController에서 mv에 담았기 때문에 el로 값을 찍어보기 / 브라우저에서 페이지 소스보기 / *****mv에 담지말고 URL로 보낸값 받아오기***** -->
+					<input type="text" name="toURL" value="${toURL}" style="display: none;">
+					<!-- 화면에는 표시하지 않되 공간을 차지하는 방법 -->
+					<!-- input type="text" style="visibility: hidden;" -->
+					<!-- 서버에 값이 안들어 온 이유는 form안에 작성을 안했었기 때문임 ********************************* -->
+					
 					<div class="input-field">
 						<input type="text" name="memberId" value="${cookie.memberId.value}" placeholder="아이디를 입력하세요"
 							required> <i class="uil uil-envelope icon"></i>

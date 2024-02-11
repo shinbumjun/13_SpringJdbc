@@ -15,11 +15,35 @@
   	<script type="text/javascript">
 		//컨트롤러에서 보낸 메세지가 있을 경우
 		window.onload = function(e){ 
+			
 			var resultMsg = '${resultMsg}';
 			var resultCode = '${resultCode}';
 			if(resultMsg.length > 0){
 				alert(resultMsg);
+				// 메시지를 한 번 보여준 후 resultMsg 값을 비웁니다.
+		        resultMsg = '';
 			}
+			
+			// 새로고침 할 때 마다 뜨길래 코드를 아래와 같이 작성했는데 이러면 메시지가 아예 안뜸 
+		    /* var resultMsg = '${resultMsg}';
+		    var resultCode = '${resultCode}';
+		    if(resultMsg.length > 0){
+		        // 로컬 스토리지에 메시지를 저장합니다.
+		        localStorage.setItem('resultMsg', resultMsg);
+		        alert(resultMsg);
+		        // 메시지를 한 번 보여준 후 resultMsg 값을 비웁니다.
+		        '${resultMsg}' = '';
+		    } else {
+		        // 이전에 저장된 메시지가 있는지 확인하고 있다면 표시합니다.
+		       var storedMsg = localStorage.getItem('resultMsg');
+		        if (storedMsg) {
+		            alert(storedMsg);
+		            // 이전에 저장된 메시지를 지웁니다.
+		            localStorage.removeItem('resultMsg');
+		        }
+		    } */
+			
+
 		}
 	</script>
   
@@ -32,7 +56,7 @@
   <ul>
     <li id="logo">bumjun</li>
     <li><a href="">홈</a></li>
-    <li><a href="">게시판</a></li>
+    <li><a href="/spring/list">게시판</a></li>
     
     
     <!-- 로그인일 했을때는 > 로그아웃, 로그아웃을 누르면 > 로그인 = session을 이용해서 해보자  -->
