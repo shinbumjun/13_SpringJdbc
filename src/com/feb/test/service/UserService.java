@@ -26,7 +26,7 @@ public class UserService {
 		System.out.println("userDao : " + userDao);
 		this.userdao = userDao;
 	}
-
+	
 	
 	// 2. Controller에 있는 코드 자동 생성 : UserService.join(params); 
 	public int join(HashMap<String, Object> params, HttpServletRequest request) {
