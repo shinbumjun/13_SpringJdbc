@@ -13,32 +13,32 @@ public class ListController {
 	@GetMapping("/list")
 	public ModelAndView ListController(HttpServletRequest request) {
 		
-		// ********************* 1.ÀÌ ¹æ½ÄÀ¸·Î ÇÏ¸é ºê¶ó¿ìÀú¿¡¼­${param.toURL} ÀÌ·¸°Ô ¹Ş°í 
+		// ********************* 1.ì´ ë°©ì‹ìœ¼ë¡œ í•˜ë©´ ë¸Œë¼ìš°ì €ì—ì„œ${param.toURL} ì´ë ‡ê²Œ ë°›ê³  
 		// http://localhost:8088/spring/loginPage?toURL=http://localhost:8088/spring/list
-		// ÀÌ·¸°ÔÇÏ¸é URLÀÌ Á» ´õ·¯¿öÁ®¼­ ¾Æ·¡ ¹æ½ÄÀ¸·Î ÇÔ
+		// ì´ë ‡ê²Œí•˜ë©´ URLì´ ì¢€ ë”ëŸ¬ì›Œì ¸ì„œ ì•„ë˜ ë°©ì‹ìœ¼ë¡œ í•¨
 //		if(!(loginCheck(request))) {
-//			return "redirect:/loginPage?toURL="+request.getRequestURL(); // ·Î±×ÀÎ ¾ÈÇßÀ» ½Ã¿¡´Â toURL¸¦ ´Ş°í ·Î±×ÀÎ ÆûÀ¸·Î
+//			return "redirect:/loginPage?toURL="+request.getRequestURL(); // ë¡œê·¸ì¸ ì•ˆí–ˆì„ ì‹œì—ëŠ” toURLë¥¼ ë‹¬ê³  ë¡œê·¸ì¸ í¼ìœ¼ë¡œ
 //		}
-//		return "list"; // ·Î±×ÀÎ ÇßÀ» ¶§´Â ¹Ù·Î °Ô½ÃÆÇÀ¸·Î 
+//		return "list"; // ë¡œê·¸ì¸ í–ˆì„ ë•ŒëŠ” ë°”ë¡œ ê²Œì‹œíŒìœ¼ë¡œ 
 		
 		
 		
 		
 		
-		// ********************* 2. ÀÌ ¹æ½ÄÀ¸·Î ÇÏ¸é ºê¶ó¿ìÀú¿¡¼­ ${toURL} ÀÌ·¸°Ô ¹Ş°í ÇÏ¸é µÊ
+		// ********************* 2. ì´ ë°©ì‹ìœ¼ë¡œ í•˜ë©´ ë¸Œë¼ìš°ì €ì—ì„œ ${toURL} ì´ë ‡ê²Œ ë°›ê³  í•˜ë©´ ë¨
 		// http://localhost:8088/spring/list 
-		// ·Î±×ÀÎ Æû È­¸éÀÌ°í ·Î±×ÀÎÀÌ ¿Ï·áµÇ¸é  http://localhost:8088/spring/list ºê¶ó¿ìÀú·Î °¡¾ßÇÑ´Ù
+		// ë¡œê·¸ì¸ í¼ í™”ë©´ì´ê³  ë¡œê·¸ì¸ì´ ì™„ë£Œë˜ë©´  http://localhost:8088/spring/list ë¸Œë¼ìš°ì €ë¡œ ê°€ì•¼í•œë‹¤
 		System.out.println("request.getRequestURL() : " + request.getRequestURL());
 		
 		ModelAndView mv = new ModelAndView();
 		
-		if(!(loginCheck(request))) { // ¼¼¼Ç °ªÀÌ nullÀÌ¸é true
+		if(!(loginCheck(request))) { // ì„¸ì…˜ ê°’ì´ nullì´ë©´ true
 			
-			// "toURL" Å°¸¦ »ç¿ëÇÏ¿© ÇöÀç ¿äÃ»ÀÇ URLÀ» ModelAndView °´Ã¼¿¡ Ãß°¡ÇÕ´Ï´Ù.
+			// "toURL" í‚¤ë¥¼ ì‚¬ìš©í•˜ì—¬ í˜„ì¬ ìš”ì²­ì˜ URLì„ ModelAndView ê°ì²´ì— ì¶”ê°€í•©ë‹ˆë‹¤.
 			mv.addObject("toURL", request.getRequestURL());
 			System.out.println("request.getRequestURL().toString() : " + request.getRequestURL().toString());
 			
-			mv.setViewName("login"); // ·Î±×ÀÎÀÌ ¾ÈµÇ¾î ÀÖ´Ù¸é ·Î±×ÀÎ ÆûÀ¸·Î ÀÌµ¿
+			mv.setViewName("login"); // ë¡œê·¸ì¸ì´ ì•ˆë˜ì–´ ìˆë‹¤ë©´ ë¡œê·¸ì¸ í¼ìœ¼ë¡œ ì´ë™
 			return mv; 
 		}
 		
@@ -49,12 +49,9 @@ public class ListController {
 	}
 	
 	private boolean loginCheck(HttpServletRequest request) {
-		// 1. ¼¼¼ÇÀ» ¾ò¾î¼­
+		// 1. ì„¸ì…˜ì„ ì–»ì–´ì„œ
 		HttpSession session = request.getSession();
-		// 2. ¼¼¼Ç¿¡ id°¡ ÀÖ´ÂÁö È®ÀÎ, ÀÖÀ¸¸é true¸¦ ¹İÈ¯
-		return session.getAttribute("memberId")!=null; // ¼¼¼Ç °ªÀÌ nullÀÌ¸é false
+		// 2. ì„¸ì…˜ì— idê°€ ìˆëŠ”ì§€ í™•ì¸, ìˆìœ¼ë©´ trueë¥¼ ë°˜í™˜
+		return session.getAttribute("memberId")!=null; // ì„¸ì…˜ ê°’ì´ nullì´ë©´ false
 	}
 }
-
-
-

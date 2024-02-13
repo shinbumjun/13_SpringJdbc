@@ -16,14 +16,14 @@ public class LoginDaoImpl extends JdbcDaoSupport implements LoginDao{
 		    List<Member> members = getJdbcTemplate().query(sql, new Object[] {memberId}, new MemberRowMapper());
 		    
 		    if (members.isEmpty()) {
-		        return null; // °ªÀÌ ¾ø´Â °æ¿ì null ¹İÈ¯
+		        return null; // ê°’ì´ ì—†ëŠ” ê²½ìš° null ë°˜í™˜
 		    } else {
-		        return members.get(0); // °ªÀÌ ÀÖ´Â °æ¿ì Ã¹ ¹øÂ° ¿ä¼Ò ¹İÈ¯
+		        return members.get(0); // ê°’ì´ ìˆëŠ” ê²½ìš° ì²« ë²ˆì§¸ ìš”ì†Œ ë°˜í™˜
 		    }
 		}
 		
-		// *****JdbcTemplateÀÇ queryForObject ¸Ş¼­µå´Â °á°ú°¡ ¾øÀ» ¶§ EmptyResultDataAccessExceptionÀ» ´øÁö¹Ç·Î, 
-		// ÀÌ¸¦ Ã³¸®ÇÏ±â À§ÇØ ¿¹¿Ü Ã³¸®¸¦ Ãß°¡ÇÏ°Å³ª, query ¸Ş¼­µå¸¦ »ç¿ëÇÏ¿© °á°ú°¡ ¾ø´Â °æ¿ì¿¡ ´ëÇÑ Ã³¸®¸¦ ¼öÇàÇÒ ¼ö ÀÖ½À´Ï´Ù
+		// *****JdbcTemplateì˜ queryForObject ë©”ì„œë“œëŠ” ê²°ê³¼ê°€ ì—†ì„ ë•Œ EmptyResultDataAccessExceptionì„ ë˜ì§€ë¯€ë¡œ, 
+		// ì´ë¥¼ ì²˜ë¦¬í•˜ê¸° ìœ„í•´ ì˜ˆì™¸ ì²˜ë¦¬ë¥¼ ì¶”ê°€í•˜ê±°ë‚˜, query ë©”ì„œë“œë¥¼ ì‚¬ìš©í•˜ì—¬ ê²°ê³¼ê°€ ì—†ëŠ” ê²½ìš°ì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ ìˆ˜í–‰í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤
 		
 //		public Member login(String memberId) {
 //			String sql = "select * from lecture.member where member_id = ?";

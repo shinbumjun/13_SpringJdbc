@@ -23,18 +23,18 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	// 5. ·Î±×¾Æ¿ô
+	// 5. ë¡œê·¸ì•„ì›ƒ
 	@GetMapping("/logout")
 	public String login(HttpSession session) {
-		// ·Î±×¾Æ¿ô ¹öÆ°À» ´©¸£¸é ¼¼¼ÇÀ» Á¾·á
+		// ë¡œê·¸ì•„ì›ƒ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ì„¸ì…˜ì„ ì¢…ë£Œ
 		session.invalidate();
-		// È¨À¸·Î ÀÌµ¿
+		// í™ˆìœ¼ë¡œ ì´ë™
 		return "redirect:/index";
 	}
 	
 	@GetMapping("/loginPage")
     public String loginForm() {
-        return "login"; // ºä ÀÌ¸§À» ¹İÈ¯ÇÕ´Ï´Ù.
+        return "login"; // ë·° ì´ë¦„ì„ ë°˜í™˜í•©ë‹ˆë‹¤.
     }
 	
 	@PostMapping("/login")
@@ -42,41 +42,41 @@ public class LoginController {
 						HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		// login.jsp¿¡¼­ name="toURL" ÀÌ°É °¡Á®¿À´Â °ÍÀÌ¶ó mv »ç¿ëÇÏ¸é ¾ÈµÇ°í params »ç¿ëÇØ¾ßÇÔ, ´Ù null°ªÀÌ ÂïÈû...
-		// °á·ĞÀûÀ¸·Î ¼­¹ö¿¡¼­ ¹Ş¾Æ¼­ ºê¶ó¿ìÀú¿¡ Ãâ·ÂµÈ °ªÀº ´Ù½Ã ¼­¹ö·Î ´Ù½Ã Àü¼ÛµÇÁö ¾Ê´Â´Ù -> URL¿¡ Ãß°¡ÇØ¼­ º¸³»¾ß µÉµí
+		// login.jspì—ì„œ name="toURL" ì´ê±¸ ê°€ì ¸ì˜¤ëŠ” ê²ƒì´ë¼ mv ì‚¬ìš©í•˜ë©´ ì•ˆë˜ê³  params ì‚¬ìš©í•´ì•¼í•¨, ë‹¤ nullê°’ì´ ì°í˜...
+		// ê²°ë¡ ì ìœ¼ë¡œ ì„œë²„ì—ì„œ ë°›ì•„ì„œ ë¸Œë¼ìš°ì €ì— ì¶œë ¥ëœ ê°’ì€ ë‹¤ì‹œ ì„œë²„ë¡œ ë‹¤ì‹œ ì „ì†¡ë˜ì§€ ì•ŠëŠ”ë‹¤ -> URLì— ì¶”ê°€í•´ì„œ ë³´ë‚´ì•¼ ë ë“¯
 		System.out.println("toURL1111111111111111111 : " + params.get("toURL")); // o
-		System.out.println("toURL2222222222222222222 : " + mv.getModel().get("toURL")); // null ÂïÈû
+		System.out.println("toURL2222222222222222222 : " + mv.getModel().get("toURL")); // null ì°í˜
 		System.out.println("toURL3333333333333333333 : " + toURL); // o
-		// °á·Ğ form¾È¿¡ inputÅÂ±×¸¦ ¾ÈÇß¾ú±â ¶§¹®¿¡ °ªÀÌ ¾Èµé¾î ¿Ô´ø°ÅÀÓ *****************************************
+		// ê²°ë¡  formì•ˆì— inputíƒœê·¸ë¥¼ ì•ˆí–ˆì—ˆê¸° ë•Œë¬¸ì— ê°’ì´ ì•ˆë“¤ì–´ ì™”ë˜ê±°ì„ *****************************************
 		
 		
     	boolean result = loginService.login(params);
     	if(result) {
-    		// ·Î±×ÀÎ ¼º°ø ½Ã »ç¿ëÀÚ Á¤º¸¸¦ ¼¼¼Ç¿¡ ÀúÀå
+    		// ë¡œê·¸ì¸ ì„±ê³µ ì‹œ ì‚¬ìš©ì ì •ë³´ë¥¼ ì„¸ì…˜ì— ì €ì¥
             HttpSession session = request.getSession();
-            session.setAttribute("memberId", params.get("memberId")); // ¿¹½Ã·Î memberId¸¦ ¼¼¼Ç¿¡ ÀúÀå
+            session.setAttribute("memberId", params.get("memberId")); // ì˜ˆì‹œë¡œ memberIdë¥¼ ì„¸ì…˜ì— ì €ì¥
             
-            // ·Î±×ÀÎ ¼º°ø½Ã Ã¼Å© ¹Ú½º ¼±ÅÃ¿¡ µû¶ó ÄíÅ° »ı¼º ¹× »èÁ¦
-            System.out.println("ÄíÅ° °ª È®ÀÎ : " + params.get("logCheck")); // on, null
+            // ë¡œê·¸ì¸ ì„±ê³µì‹œ ì²´í¬ ë°•ìŠ¤ ì„ íƒì— ë”°ë¼ ì¿ í‚¤ ìƒì„± ë° ì‚­ì œ
+            System.out.println("ì¿ í‚¤ ê°’ í™•ì¸ : " + params.get("logCheck")); // on, null
     		if("on".equals(params.get("logCheck"))) {
-				System.out.print("ÄíÅ° ÀúÀå");
-				// ÄíÅ° »ı¼º
+				System.out.print("ì¿ í‚¤ ì €ì¥");
+				// ì¿ í‚¤ ìƒì„±
 				Cookie cookie = new Cookie("memberId", params.get("memberId"));
-				// ÀÀ´ä¿¡ ÀúÀå
+				// ì‘ë‹µì— ì €ì¥
 				response.addCookie(cookie);
-			}else { // Ã¼Å©¹Ú½º Å¬¸¯ x
-				// ÄíÅ° »èÁ¦
+			}else { // ì²´í¬ë°•ìŠ¤ í´ë¦­ x
+				// ì¿ í‚¤ ì‚­ì œ
 				Cookie cookie = new Cookie("memberId","");
 				cookie.setMaxAge(0);
-				// ÀÀ´ä¿¡ ÀúÀå
+				// ì‘ë‹µì— ì €ì¥
 				response.addCookie(cookie);
 			}
             
-			mv.addObject("resultMsg", "·Î±× ¼º°ø");
+			mv.addObject("resultMsg", "ë¡œê·¸ ì„±ê³µ");
 			mv.addObject("resultCode", "loginOk");
 			
 			// mv.setViewName("index");
-	        // toURL ÆÄ¶ó¹ÌÅÍ°¡ Á¸ÀçÇÒ °æ¿ì ÇØ´ç URL·Î ¸®´ÙÀÌ·ºÆ® (ÄÚµå´Â GPTÀÌ¿ë)
+	        // toURL íŒŒë¼ë¯¸í„°ê°€ ì¡´ì¬í•  ê²½ìš° í•´ë‹¹ URLë¡œ ë¦¬ë‹¤ì´ë ‰íŠ¸ (ì½”ë“œëŠ” GPTì´ìš©)
 	        if (params.containsKey("toURL") && params.get("toURL") != null && !params.get("toURL").isEmpty()) {
 	        	System.out.println("toURLooooooooooooooooooooo : " + params.get("toURL"));
 	            mv.setViewName("redirect:" + params.get("toURL"));
@@ -86,24 +86,13 @@ public class LoginController {
 	        }
 			
     	}else {
-    		mv.addObject("resultMsg", "·Î±×ÀÎ½ÇÆĞ");
+    		mv.addObject("resultMsg", "ë¡œê·¸ì¸ì‹¤íŒ¨");
 			mv.addObject("resultCode", "loginFail");
 			mv.setViewName("/login");
     	}
     	
-    	// URLÀÌ null°ªÀÌ ¾Æ´Ï¸é 
+    	// URLì´ nullê°’ì´ ì•„ë‹ˆë©´ 
     	
     	return mv;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-

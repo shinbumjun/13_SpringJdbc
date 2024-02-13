@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- %@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"% -->
+	
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
@@ -13,37 +16,37 @@
 <link rel="stylesheet"
 	href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-<!-- ===== CSS ÁÖÀÇÇÒÁ¡ : /resources/css/style.css resource¾È¿¡ cssÆÄÀÏ ¾È¿¡ style.css¸¦ ³Ö´Â´Ù.  ===== -->
+<!-- ===== CSS ì£¼ì˜í• ì  : /resources/css/style.css resourceì•ˆì— cssíŒŒì¼ ì•ˆì— style.cssë¥¼ ë„£ëŠ”ë‹¤.  ===== -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
 <script type="text/javascript">
-	//ÄÁÆ®·Ñ·¯¿¡¼­ º¸³½ ¸Ş¼¼Áö°¡ ÀÖÀ» °æ¿ì
+	//ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ ë³´ë‚¸ ë©”ì„¸ì§€ê°€ ìˆì„ ê²½ìš°
 	 window.onload = function(e){ 
 		
 			var resultMsg = '${resultMsg}';
 		 	var resultCode = '${resultCode}';
 			if(resultMsg.length > 0){
 		 		alert(resultMsg);
-		 		// ¸Ş½ÃÁö¸¦ ÇÑ ¹ø º¸¿©ÁØ ÈÄ resultMsg °ªÀ» ºñ¿ó´Ï´Ù.
+		 		// ë©”ì‹œì§€ë¥¼ í•œ ë²ˆ ë³´ì—¬ì¤€ í›„ resultMsg ê°’ì„ ë¹„ì›ë‹ˆë‹¤.
 		         resultMsg = '';
 			}
 		
-		// »õ·Î°íÄ§ ÇÒ ¶§ ¸¶´Ù ¶ß±æ·¡ ÄÚµå¸¦ ¾Æ·¡¿Í °°ÀÌ ÀÛ¼ºÇß´Âµ¥ ÀÌ·¯¸é ¸Ş½ÃÁö°¡ ¾Æ¿¹ ¾È¶ä 
+		// ìƒˆë¡œê³ ì¹¨ í•  ë•Œ ë§ˆë‹¤ ëœ¨ê¸¸ë˜ ì½”ë“œë¥¼ ì•„ë˜ì™€ ê°™ì´ ì‘ì„±í–ˆëŠ”ë° ì´ëŸ¬ë©´ ë©”ì‹œì§€ê°€ ì•„ì˜ˆ ì•ˆëœ¸ 
 	    /* var resultMsg = '${resultMsg}';
 	    var resultCode = '${resultCode}';
 	    if(resultMsg.length > 0){
-	        // ·ÎÄÃ ½ºÅä¸®Áö¿¡ ¸Ş½ÃÁö¸¦ ÀúÀåÇÕ´Ï´Ù.
+	        // ë¡œì»¬ ìŠ¤í† ë¦¬ì§€ì— ë©”ì‹œì§€ë¥¼ ì €ì¥í•©ë‹ˆë‹¤.
 	        localStorage.setItem('resultMsg', resultMsg);
 	        alert(resultMsg);
-	        // ¸Ş½ÃÁö¸¦ ÇÑ ¹ø º¸¿©ÁØ ÈÄ resultMsg °ªÀ» ºñ¿ó´Ï´Ù.
+	        // ë©”ì‹œì§€ë¥¼ í•œ ë²ˆ ë³´ì—¬ì¤€ í›„ resultMsg ê°’ì„ ë¹„ì›ë‹ˆë‹¤.
 	        '${resultMsg}' = '';
 	    } else {
-	        // ÀÌÀü¿¡ ÀúÀåµÈ ¸Ş½ÃÁö°¡ ÀÖ´ÂÁö È®ÀÎÇÏ°í ÀÖ´Ù¸é Ç¥½ÃÇÕ´Ï´Ù.
+	        // ì´ì „ì— ì €ì¥ëœ ë©”ì‹œì§€ê°€ ìˆëŠ”ì§€ í™•ì¸í•˜ê³  ìˆë‹¤ë©´ í‘œì‹œí•©ë‹ˆë‹¤.
 	        var storedMsg = localStorage.getItem('resultMsg');
 	        if (storedMsg) {
 	            alert(storedMsg);
-	            // ÀÌÀü¿¡ ÀúÀåµÈ ¸Ş½ÃÁö¸¦ Áö¿ó´Ï´Ù.
+	            // ì´ì „ì— ì €ì¥ëœ ë©”ì‹œì§€ë¥¼ ì§€ì›ë‹ˆë‹¤.
 	            localStorage.removeItem('resultMsg');
 	        }
 	    } */
@@ -58,53 +61,55 @@
 	<div class="container">
 		<div class="forms">
 			<div class="form login">
-				<span class="title">Login</span>
-
+			    <span class="title">ë¡œê·¸ì¸</span> 
+			    <span style="float: right;"><a href="/spring/index" style="text-decoration: none;">í™ˆìœ¼ë¡œ</a></span>
+			    <div style="clear: both;"></div> <!-- Clear float -->
+			    
 				<form action="<c:url value='/login'/>" method="post"
 					onsubmit="return formCheck(this);">
 					
-					<!-- È­¸é¿¡ Ç¥½ÃÇÏÁö ¾Ê°í °ø°£À» Â÷ÁöÇÏÁö ¾Êµµ·Ï ÇÏ´Â ¹æ¹ı -->
-					<!-- ListController¿¡¼­ mv¿¡ ´ã¾Ò±â ¶§¹®¿¡ el·Î °ªÀ» Âï¾îº¸±â / ºê¶ó¿ìÀú¿¡¼­ ÆäÀÌÁö ¼Ò½ºº¸±â / *****mv¿¡ ´ãÁö¸»°í URL·Î º¸³½°ª ¹Ş¾Æ¿À±â***** -->
+					<!-- í™”ë©´ì— í‘œì‹œí•˜ì§€ ì•Šê³  ê³µê°„ì„ ì°¨ì§€í•˜ì§€ ì•Šë„ë¡ í•˜ëŠ” ë°©ë²• -->
+					<!-- ListControllerì—ì„œ mvì— ë‹´ì•˜ê¸° ë•Œë¬¸ì— elë¡œ ê°’ì„ ì°ì–´ë³´ê¸° / ë¸Œë¼ìš°ì €ì—ì„œ í˜ì´ì§€ ì†ŒìŠ¤ë³´ê¸° / *****mvì— ë‹´ì§€ë§ê³  URLë¡œ ë³´ë‚¸ê°’ ë°›ì•„ì˜¤ê¸°***** -->
 					<input type="text" name="toURL" value="${toURL}" style="display: none;">
-					<!-- È­¸é¿¡´Â Ç¥½ÃÇÏÁö ¾ÊµÇ °ø°£À» Â÷ÁöÇÏ´Â ¹æ¹ı -->
+					<!-- í™”ë©´ì—ëŠ” í‘œì‹œí•˜ì§€ ì•Šë˜ ê³µê°„ì„ ì°¨ì§€í•˜ëŠ” ë°©ë²• -->
 					<!-- input type="text" style="visibility: hidden;" -->
-					<!-- ¼­¹ö¿¡ °ªÀÌ ¾Èµé¾î ¿Â ÀÌÀ¯´Â form¾È¿¡ ÀÛ¼ºÀ» ¾ÈÇß¾ú±â ¶§¹®ÀÓ ********************************* -->
+					<!-- ì„œë²„ì— ê°’ì´ ì•ˆë“¤ì–´ ì˜¨ ì´ìœ ëŠ” formì•ˆì— ì‘ì„±ì„ ì•ˆí–ˆì—ˆê¸° ë•Œë¬¸ì„ ********************************* -->
 					
 					<div class="input-field">
-						<input type="text" name="memberId" value="${cookie.memberId.value}" placeholder="¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä"
+						<input type="text" name="memberId" value="${cookie.memberId.value}" placeholder="ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”"
 							required> <i class="uil uil-envelope icon"></i>
 					</div>
 					<div class="input-field">
 						<input type="password" name="passwd" class="password"
-							placeholder="ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä" required> <i
+							placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”" required> <i
 							class="uil uil-lock icon"></i> <i
 							class="uil uil-eye-slash showHidePw"></i>
 					</div>
 
 					<div class="checkbox-text">
 						<div class="checkbox-content">
-						<!-- id="keep", for="keep ¼±ÅÃ ¿µ¿ª -->
+						<!-- id="keep", for="keep ì„ íƒ ì˜ì—­ -->
 							<input type="checkbox" id="keep" name="logCheck" class="input_keep" ${empty cookie.memberId.value ? "":"checked"}> <label
-								for="keep" class="keep_text">·Î±×ÀÎ »óÅÂ À¯Áö</label>
+								for="keep" class="keep_text">ë¡œê·¸ì¸ ìƒíƒœ ìœ ì§€</label>
 						</div>
 
-						<a href="#" class="text">Forgot password?</a>
+						<a href="#" class="text">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
 					</div>
 
 					<div class="input-field button">
-						<input type="submit" value="Login">
+						<input type="submit" value="ë¡œê·¸ì¸">
 					</div>
 					<script>
 						function formCheck(frm) {
 							let msg = '';
 
 							if (frm.id.value.length == 0) {
-								setMessage('id¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.', frm.id);
+								setMessage('idë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.', frm.id);
 								return false;
 							}
 
 							if (frm.pwd.value.length == 0) {
-								setMessage('password¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.', frm.pwd);
+								setMessage('passwordë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.', frm.pwd);
 								return false;
 							}
 
@@ -122,58 +127,58 @@
 				</form>
 
 				<div class="login-signup">
-					<span class="text">Not a member? <a href="#"
-						class="text signup-link">Signup Now</a>
+					<span class="text">íšŒì›ì´ ì•„ë‹ˆì‹ ê°€ìš”? <a href="#"
+						class="text signup-link">íšŒì›ê°€ì…</a>
 					</span>
 				</div>
 			</div>
 
 			<!-- Registration Form -->
 			<div class="form signup">
-				<span class="title">Registration</span>
+				<span class="title">íšŒì›ê°€ì…</span>
 
-				<form action="<c:url value='/join.do'/>" method="post">
+				<form action="<c:url value='/join'/>" method="post">
 					<div class="input-field">
-						<input type="text" name="memberId"  placeholder="Enter your name" required>
+						<input type="text" name="memberId"  placeholder="ì‚¬ìš©ì ì•„ì´ë””" required>
 						<i class="uil uil-user"></i>
 					</div>
 					<div class="input-field">
-						<input type="text" name="email" placeholder="Enter your email" required>
+						<input type="text" name="email" placeholder="ì‚¬ìš©ì ì´ë©”ì¼" required>
 						<i class="uil uil-envelope icon"></i>
 					</div>
 					<div class="input-field">
 						<input type="password" name="passwd" class="password"
-							placeholder="Create a password" required> <i
+							placeholder="ì‚¬ìš©ì ë¹„ë°€ë²ˆí˜¸" required> <i
 							class="uil uil-lock icon"></i>
 					</div>
 					<div class="input-field">
 						<input type="password" class="password"
-							placeholder="Confirm a password" required> <i
+							placeholder="ì‚¬ìš©ì ë¹„ë°€ë²ˆí˜¸ ì¬í™•ì¸" required> <i
 							class="uil uil-lock icon"></i> <i
 							class="uil uil-eye-slash showHidePw"></i>
 					</div>
 
-					<div class="checkbox-text">
+					<!--  div class="checkbox-text">
 						<div class="checkbox-content">
 							<input type="checkbox" id="termCon"> <label for="termCon"
 								class="text">I accepted all terms and conditions</label>
 						</div>
-					</div>
+					</div -->
 
 					<div class="input-field button">
-						<input type="submit" value="Signup">
+						<input type="submit" value="ê°€ì…">
 					</div>
 				</form>
 
 				<div class="login-signup">
-					<span class="text">Already a member? <a href="#"
-						class="text login-link">Login Now</a>
+					<span class="text">íšŒì›ì´ì‹ ê°€ìš”? <a href="#"
+						class="text login-link">ë¡œê·¸ì¸</a>
 					</span>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- ÁÖÀÇÇÒÁ¡ : /resources/js/script.js¼³Á¤½Ã resources¾È¿¡ jsÆÄÀÏ¾È¿¡ script.js ³ÖÀ» °Í -->
+	<!-- ì£¼ì˜í• ì  : /resources/js/script.jsì„¤ì •ì‹œ resourcesì•ˆì— jsíŒŒì¼ì•ˆì— script.js ë„£ì„ ê²ƒ -->
 	<script src="${pageContext.request.contextPath}/resources/js/script.js"></script>
 
 </body>

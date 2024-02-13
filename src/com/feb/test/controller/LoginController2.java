@@ -14,62 +14,62 @@
 //@Controller
 //public class LoginController2 {
 //
-//	// 5. ·Î±×¾Æ¿ô
+//	// 5. ë¡œê·¸ì•„ì›ƒ
 //	@GetMapping("/logout")
 //	public String login(HttpSession session) {
-//		// ·Î±×¾Æ¿ô ¹öÆ°À» ´©¸£¸é ¼¼¼ÇÀ» Á¾·á
+//		// ë¡œê·¸ì•„ì›ƒ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ì„¸ì…˜ì„ ì¢…ë£Œ
 //		session.invalidate();
-//		// È¨À¸·Î ÀÌµ¿
+//		// í™ˆìœ¼ë¡œ ì´ë™
 //		return "redirect:/index";
 //	}
 //	
 //	@GetMapping("/loginPage")
 //    public String loginForm() {
-//        return "login"; // ºä ÀÌ¸§À» ¹İÈ¯ÇÕ´Ï´Ù.
+//        return "login"; // ë·° ì´ë¦„ì„ ë°˜í™˜í•©ë‹ˆë‹¤.
 //    }
 //	
 //	@PostMapping("/login.do")
 //	public String login(String memberId, String passwd, String logCheck, String toURL, HttpServletRequest request,HttpServletResponse response) throws Exception {
-//		// 1. Login¿¡ ÀÔ·ÂÇÑ °ªÀÌ Àß µé¾î¿Ô´ÂÁö È®ÀÎ
+//		// 1. Loginì— ì…ë ¥í•œ ê°’ì´ ì˜ ë“¤ì–´ì™”ëŠ”ì§€ í™•ì¸
 //		System.out.println("memberId : " + memberId);
 //		System.out.println("passwd : " + passwd);
-//		System.out.println("logCheck : " + logCheck); // Ã¼Å©ÇÏ¸é on, Ã¼Å©¾ÈÇÏ¸é null
+//		System.out.println("logCheck : " + logCheck); // ì²´í¬í•˜ë©´ on, ì²´í¬ì•ˆí•˜ë©´ null
 //		
-//		// 2. id¿Í pwd ÀÏÄ¡ÇÏÁö ¾ÊÀ» °æ¿ì
+//		// 2. idì™€ pwd ì¼ì¹˜í•˜ì§€ ì•Šì„ ê²½ìš°
 //		if(!(loginCheck(memberId, passwd))) {
-//			String msg = URLEncoder.encode("id ¶Ç´Â pwd°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.", "utf-8");
+//			String msg = URLEncoder.encode("id ë˜ëŠ” pwdê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.", "utf-8");
 //			return "redirect:/loginPage"; // redirect
 //		}
 //		
-//		// 3. memberId, passwd°¡ ÀÏÄ¡ÇÏ¸é ¼¼¼Ç °´Ã¼¸¦ ¾ò¾î¿À±â
+//		// 3. memberId, passwdê°€ ì¼ì¹˜í•˜ë©´ ì„¸ì…˜ ê°ì²´ë¥¼ ì–»ì–´ì˜¤ê¸°
 //		HttpSession session = request.getSession();
-//		session.setAttribute("memberId", memberId); // ¸Å°³º¯¼ö·Î ¹ŞÀº memberId°ªÀ» "memberId"Å° °ªÀ¸·Î ÀúÀå
-//		System.out.println("session.getMemberId() : " + session.getAttribute("memberId")); // "id"Å°°ªÀÌ ÀúÀå µÇ¾ú´ÂÁö Âï¾îº¸±â
+//		session.setAttribute("memberId", memberId); // ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ì€ memberIdê°’ì„ "memberId"í‚¤ ê°’ìœ¼ë¡œ ì €ì¥
+//		System.out.println("session.getMemberId() : " + session.getAttribute("memberId")); // "id"í‚¤ê°’ì´ ì €ì¥ ë˜ì—ˆëŠ”ì§€ ì°ì–´ë³´ê¸°
 //		
-//		// 4. ÄíÅ° »ı¼ºÇÏ±â
-//		// if(logCheck.equals("on")) { // Ã¼Å©¹Ú½º Å¬·¢ o, ***** logCheck=nullÀÏ °æ¿ì  NullPointerException 
+//		// 4. ì¿ í‚¤ ìƒì„±í•˜ê¸°
+//		// if(logCheck.equals("on")) { // ì²´í¬ë°•ìŠ¤ í´ë™ o, ***** logCheck=nullì¼ ê²½ìš°  NullPointerException 
 //		if("on".equals(logCheck)) {
-//			System.out.print("ÄíÅ° ÀúÀå");
-//			// ÄíÅ° »ı¼º
+//			System.out.print("ì¿ í‚¤ ì €ì¥");
+//			// ì¿ í‚¤ ìƒì„±
 //			Cookie cookie = new Cookie("memberId", memberId);
-//			// ÀÀ´ä¿¡ ÀúÀå
+//			// ì‘ë‹µì— ì €ì¥
 //			response.addCookie(cookie);
-//		}else { // Ã¼Å©¹Ú½º Å¬¸¯ x
-//			// ÄíÅ° »èÁ¦
+//		}else { // ì²´í¬ë°•ìŠ¤ í´ë¦­ x
+//			// ì¿ í‚¤ ì‚­ì œ
 //			Cookie cookie = new Cookie("memberId",memberId);
 //			cookie.setMaxAge(0);
-//			// ÀÀ´ä¿¡ ÀúÀå
+//			// ì‘ë‹µì— ì €ì¥
 //			response.addCookie(cookie);
 //		}
 //
-//		return "redirect:/index"; // ·Î±×ÀÎ ¼º°øÇÒ °æ¿ì È¨ÆäÀÌÁö·Î ÀÌµ¿
+//		return "redirect:/index"; // ë¡œê·¸ì¸ ì„±ê³µí•  ê²½ìš° í™ˆí˜ì´ì§€ë¡œ ì´ë™
 //	}
 //
 //	private boolean loginCheck(String memberId, String passwd) {
-////		if(id=="s123s123s" && pwd == "12345") { ... // *****== ÀÌ°ÍÀ¸·Î ºñ±³ÇßÀ»¶§ if(ture)¹®ÀÌ ½ÇÇàÀÌ ¾ÈµÇ¾î¼­ .equals()·Î ¼öÁ¤
+////		if(id=="s123s123s" && pwd == "12345") { ... // *****== ì´ê²ƒìœ¼ë¡œ ë¹„êµí–ˆì„ë•Œ if(ture)ë¬¸ì´ ì‹¤í–‰ì´ ì•ˆë˜ì–´ì„œ .equals()ë¡œ ìˆ˜ì •
 //		boolean ok = ("s123s123s".equals(memberId) && "123".equals(passwd));
 //
-//		System.out.println("·Î±×ÀÎ È®ÀÎ : " + ok);
+//		System.out.println("ë¡œê·¸ì¸ í™•ì¸ : " + ok);
 //		return ok;
 //	}
 //	

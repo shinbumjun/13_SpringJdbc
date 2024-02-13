@@ -18,22 +18,22 @@ public class LoginService {
 	}
 	
 	public boolean login(HashMap<String,String> params) {
-		String memberId = params.get("memberId"); // 1-1) »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ¾ÆÀÌµğ
-		Member member = loginDao.login(memberId); // 2-1) µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ ÇØ´ç »ç¿ëÀÚ Á¤º¸¸¦ Á¶È¸
+		String memberId = params.get("memberId"); // 1-1) ì‚¬ìš©ìê°€ ì…ë ¥í•œ ì•„ì´ë””
+		Member member = loginDao.login(memberId); // 2-1) ë°ì´í„°ë² ì´ìŠ¤ì—ì„œ í•´ë‹¹ ì‚¬ìš©ì ì •ë³´ë¥¼ ì¡°íšŒ
 		
-	    // »ç¿ëÀÚ Á¤º¸°¡ Á¶È¸µÇÁö ¾ÊÀº °æ¿ì nullÀÏ °æ¿ì
+	    // ì‚¬ìš©ì ì •ë³´ê°€ ì¡°íšŒë˜ì§€ ì•Šì€ ê²½ìš° nullì¼ ê²½ìš°
 	    if (member == null) {
-	        return false; // ·Î±×ÀÎ ½ÇÆĞ
+	        return false; // ë¡œê·¸ì¸ ì‹¤íŒ¨
 	    }
 		
-		String memberPw = member.getPasswd(); // 2-2) Á¶È¸µÈ »ç¿ëÀÚ Á¤º¸¿¡¼­ ºñ¹Ğ¹øÈ£
+		String memberPw = member.getPasswd(); // 2-2) ì¡°íšŒëœ ì‚¬ìš©ì ì •ë³´ì—ì„œ ë¹„ë°€ë²ˆí˜¸
 		
-		Sha512Encoder encoder = Sha512Encoder.getInstance(); // ºñ¹Ğ¹øÈ£¸¦ ¾ÏÈ£È­ÇÏ±â À§ÇØ Sha512Encoder¸¦ ÀÎ½ºÅÏ½ºÈ­
-		String passwd = params.get("passwd"); // 1-2) »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ºñ¹Ğ¹øÈ£
+		Sha512Encoder encoder = Sha512Encoder.getInstance(); // ë¹„ë°€ë²ˆí˜¸ë¥¼ ì•”í˜¸í™”í•˜ê¸° ìœ„í•´ Sha512Encoderë¥¼ ì¸ìŠ¤í„´ìŠ¤í™”
+		String passwd = params.get("passwd"); // 1-2) ì‚¬ìš©ìê°€ ì…ë ¥í•œ ë¹„ë°€ë²ˆí˜¸
 		
-		String encodeTxt = encoder.getSecurePassword(passwd); // 1-3) »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ºñ¹Ğ¹øÈ£À» ¾ÏÈ£È­			
+		String encodeTxt = encoder.getSecurePassword(passwd); // 1-3) ì‚¬ìš©ìê°€ ì…ë ¥í•œ ë¹„ë°€ë²ˆí˜¸ì„ ì•”í˜¸í™”			
 		
 		System.out.println(member);
-		return StringUtils.pathEquals(memberPw, encodeTxt); // 3) µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ Á¶È¸µÈ ºñ¹Ğ¹øÈ£¿Í »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ºñ¹Ğ¹øÈ£¸¦ ¾ÏÈ£È­ÇÑ °ª ºñ±³
+		return StringUtils.pathEquals(memberPw, encodeTxt); // 3) ë°ì´í„°ë² ì´ìŠ¤ì—ì„œ ì¡°íšŒëœ ë¹„ë°€ë²ˆí˜¸ì™€ ì‚¬ìš©ìê°€ ì…ë ¥í•œ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì•”í˜¸í™”í•œ ê°’ ë¹„êµ
 	}
 }

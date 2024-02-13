@@ -1,10 +1,12 @@
-const container = document.querySelector(".container"),
-      pwShowHide = document.querySelectorAll(".showHidePw"),
-      pwFields = document.querySelectorAll(".password"),
-      signUp = document.querySelector(".signup-link"),
-      login = document.querySelector(".login-link");
+const container = document.querySelector(".container"), // HTML에서 클래스가 "container"인 요소를 선택
 
-    //   js code to show/hide password and change icon
+      pwShowHide = document.querySelectorAll(".showHidePw"), // HTML에서 클래스가 "showHidePw"인 모든 요소를 선택
+      
+      pwFields = document.querySelectorAll(".password"), // HTML에서 클래스가 "password"인 모든 요소를 선택
+      signUp = document.querySelector(".signup-link"), // HTML에서 클래스가 "signup-link"인 요소를 선택
+      login = document.querySelector(".login-link"); // HTML에서 클래스가 "login-link"인 요소를 선택
+
+    // showHidePw 클래스를 가진 모든 요소에 대해 이벤트 리스너를 등록
     pwShowHide.forEach(eyeIcon =>{
         eyeIcon.addEventListener("click", ()=>{
             pwFields.forEach(pwField =>{
@@ -25,10 +27,17 @@ const container = document.querySelector(".container"),
         })
     })
 
-    // js code to appear signup and login form
+    // 로그인/회원가입 폼 전환 기능
     signUp.addEventListener("click", ( )=>{
         container.classList.add("active");
     });
+    // 클래스 변경
     login.addEventListener("click", ( )=>{
         container.classList.remove("active");
     });
+    
+    // 비밀번호 보이기/숨기기 및 로그인/회원가입 폼 전환과 같은 기능을 구현
+    
+    
+
+    
