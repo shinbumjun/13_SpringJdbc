@@ -11,6 +11,8 @@ public class IndexController {
 		System.out.println("111111111111111111111111");
 	}
 
+	// 커밋이 충돌되어서 다시
+	
 	@RequestMapping("/index")
 	public ModelAndView index() {
 		System.out.print("222222222222222222222222");
