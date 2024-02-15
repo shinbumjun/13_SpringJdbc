@@ -20,7 +20,7 @@ import com.feb.test.service.LoginService;
 @Controller
 public class LoginController {
 
-	@Autowired
+	@Autowired // LoginService 타입의 빈을 찾아서 loginService 필드에 주입
 	private LoginService loginService;
 	
 	// 5. 로그아웃

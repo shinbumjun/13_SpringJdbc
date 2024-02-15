@@ -55,6 +55,7 @@
 <div id="menu">
   <ul>
     <li id="logo">bumjun</li>
+    <li><a href="/spring/csvmember">업로드</a></li>
     <li><a href="">홈</a></li>
     <li><a href="/spring/list">게시판</a></li>
     

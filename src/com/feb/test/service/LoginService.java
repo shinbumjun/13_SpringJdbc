@@ -2,14 +2,18 @@ package com.feb.test.service;
 
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 
 import com.feb.test.dao.LoginDao;
 import com.feb.test.entity.Member;
 import com.feb.test.util.Sha512Encoder;
 
+@Controller
 public class LoginService {
 	
+	@Autowired
 	LoginDao loginDao;
 	
 	public LoginService() {}
