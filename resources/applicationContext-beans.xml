@@ -4,6 +4,48 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
+	<!-- 강의에서 한것 새롭게 만들어봄, 비밀번호를 찾기 위한 기능 구현 -->
+	<bean id="findPwDao" class="com.feb.test.dao.impl.FindPwDaoImpl">
+	    <property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="findPwService" class="com.feb.test.service.FindPwService">
+	    <constructor-arg ref="findPwDao" />
+	    <!-- name="타겟_변수명" ref="타겟 _변수에_해당하는_클래스" (FindPwService안에 있는 변수명)-->
+	    <property name="emailUtil" ref="emailUtil" />
+	</bean>
+	
+	
+	
+	<!-- private JavaMailSender mailSender;
+    public EmailUtil(JavaMailSender mailSender) { // xml
+    	this.mailSender = mailSender;
+    } -->
+	<bean id="emailUtil" class="com.feb.test.util.EmailUtil">
+		<constructor-arg ref="mailSender" />
+	</bean>
+	<!-- EmailUtil 클래스를 Spring bean으로 등록하세요 -->
+	<!-- EmailUtil emailUtil = new EmailUtil(); 이것이랑 같다 -->
+	<!-- bean id="emailUtil" class="com.feb.test.util.EmailUtil"/ -->
+	
+	
+	
+	<!-- 이메일 전송하기 위한 bean설정 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.naver.com" />
+		<property name="port" value="587" />
+		<property name="username" value="sinbumjun123@naver.com" />
+		<property name="password" value="151243739009q!" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	
+
+
 	<!--  bean id="loginController" class="com.feb.test.controller.LoginController">
 		<constructor-arg ref="loginService" />
 	</bean-->

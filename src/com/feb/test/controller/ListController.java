@@ -44,8 +44,6 @@ public class ListController {
 		
 		mv.setViewName("list");
 		return mv;
-		
-		
 	}
 	
 	private boolean loginCheck(HttpServletRequest request) {
@@ -54,4 +52,5 @@ public class ListController {
 		// 2. 세션에 id가 있는지 확인, 있으면 true를 반환
 		return session.getAttribute("memberId")!=null; // 세션 값이 null이면 false
 	}
+
 }

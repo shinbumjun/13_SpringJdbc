@@ -13,7 +13,11 @@ public class LoginDaoImpl extends JdbcDaoSupport implements LoginDao{
 		@Override
 		public Member login(String memberId) {
 		    String sql = "select * from lecture.member where member_id = ?";
-		    List<Member> members = getJdbcTemplate().query(sql, new Object[] {memberId}, new MemberRowMapper());
+		    // MemberRowMapper : 행이랑 Mapper 연결
+		    // getJdbcTemplate : SpringJDBC에 있는것
+		    
+		    // members 타입으로 받기 위해서 new MemberRowMapper() : 어떤 타입인지, 생성
+		    List<Member> members = getJdbcTemplate().query(sql, new Object[] {memberId}, new MemberRowMapper()); 
 		    
 		    if (members.isEmpty()) {
 		        return null; // 값이 없는 경우 null 반환
